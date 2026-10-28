@@ -1,0 +1,1 @@
+import{T as e,t}from"./index-DIN6XG7M.js";var n=e(),r=()=>(0,n.jsx)(t,{slug:`odontologia-general-villavicencio`});export{r as component};

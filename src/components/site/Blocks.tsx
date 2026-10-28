@@ -141,10 +141,6 @@ export function CasesGallery() {
                 <img src={c.afterImage} alt={c.afterAlt} width={600} height={450} loading="lazy" className="h-full w-full object-cover" />
               </div>
             </div>
-            <div className="p-6">
-              <h3 className="font-display text-xl text-gold-dark">{c.treatment}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{c.description}</p>
-            </div>
           </article>
         </Reveal>
       ))}

@@ -1,5 +1,5 @@
 import { n as __require, r as __toESM, t as __commonJSMin } from "../../_runtime.mjs";
-import { c as require_react, o as require_react_dom, s as require_jsx_runtime } from "../@radix-ui/react-accordion+[...].mjs";
+import { c as require_jsx_runtime, l as require_react, o as require_react_dom } from "../@radix-ui/react-accordion+[...].mjs";
 import { i as parseHref, r as normalizeProtocolRelative } from "../tanstack__history.mjs";
 import { PassThrough, Readable } from "node:stream";
 //#region node_modules/@tanstack/router-core/dist/esm/not-found.js

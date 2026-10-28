@@ -610,6 +610,7 @@ function createSlot(ownerName) {
 	return Slot2;
 }
 __name$9(createSlot, "createSlot");
+var Slot = /* @__PURE__ */ createSlot("Slot");
 var SLOTTABLE_IDENTIFIER = Symbol.for("radix.slottable");
 // @__NO_SIDE_EFFECTS__
 function createSlottable(ownerName) {
@@ -2168,4 +2169,4 @@ function getState(open) {
 }
 __name(getState, "getState");
 //#endregion
-export { AccordionTrigger as a, require_react as c, AccordionItem as i, AccordionContent as n, require_react_dom as o, AccordionHeader as r, require_jsx_runtime as s, Accordion as t };
+export { AccordionTrigger as a, require_jsx_runtime as c, AccordionItem as i, require_react as l, AccordionContent as n, require_react_dom as o, AccordionHeader as r, Slot as s, Accordion as t };

@@ -1,8 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import * as React from "react";
 import { motion, useReducedMotion } from "motion/react";
-import { Award, HeartHandshake, MapPin, ShieldCheck, Sparkles, Smile, Stethoscope, Users } from "lucide-react";
+import { ArrowLeft, ArrowRight, Award, HeartHandshake, MapPin, ShieldCheck, Sparkles, Smile, Stethoscope, Users } from "lucide-react";
 import hero from "@/assets/hero.webp";
 import hygiene from "@/assets/hygiene.jpg";
+import nosotros from "@/assets/nosotros.webp";
+import carrusel1 from "@/assets/carrusel_1.webp";
+import carrusel2 from "@/assets/carrusel_2.webp";
+import carrusel3 from "@/assets/carrusel_3.webp";
+import carrusel4 from "@/assets/carrusel_4.webp";
+import carrusel5 from "@/assets/carrusel5.webm";
 import { featuredServices } from "@/config/services";
 import { homeFaqs } from "@/config/faq";
 import { site } from "@/config/site";
@@ -10,6 +17,7 @@ import { seo } from "@/lib/seo";
 import { WA_MESSAGES } from "@/lib/whatsapp";
 import { ArrowLink, CtaBand, FaqList, Reveal, SectionHeading, WaButton } from "@/components/site/primitives";
 import { CasesGallery, DoctorBlock, MissionVision, ReviewsBlock, ServiceCard } from "@/components/site/Blocks";
+import { Carousel, CarouselContent, CarouselItem, type CarouselApi as CarouselApiType } from "@/components/ui/carousel";
 
 export const Route = createFileRoute("/")({
   head: () => {
@@ -82,6 +90,114 @@ const reasons = [
   { icon: MapPin, t: "Ubicación", d: "Estamos en el barrio Hacarítama, Villavicencio, Meta." },
 ];
 
+const carouselItems = [
+  { type: "image", src: carrusel1, alt: "Imagen del consultorio 1" },
+  { type: "image", src: carrusel2, alt: "Imagen del consultorio 2" },
+  { type: "image", src: carrusel3, alt: "Imagen del consultorio 3" },
+  { type: "image", src: carrusel4, alt: "Imagen del consultorio 4" },
+  { type: "video", src: carrusel5, alt: "Video del consultorio" },
+];
+
+function VerticalCarousel() {
+  const [api, setApi] = React.useState<CarouselApiType | null>(null);
+  const [current, setCurrent] = React.useState(0);
+  const videoRef = React.useRef<HTMLVideoElement | null>(null);
+
+  React.useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    setCurrent(api.selectedScrollSnap());
+
+    const onSelect = () => {
+      setCurrent(api.selectedScrollSnap());
+    };
+
+    api.on("select", onSelect);
+    return () => {
+      api.off("select", onSelect);
+    };
+  }, [api]);
+
+  React.useEffect(() => {
+    if (!videoRef.current) return;
+
+    const video = videoRef.current;
+    const isVideoSlide = current === 4;
+
+    if (!isVideoSlide && !video.paused) {
+      video.pause();
+    }
+  }, [current]);
+
+  return (
+    <Carousel
+      opts={{
+        align: "start",
+        loop: true,
+      }}
+      setApi={setApi}
+      className="mx-auto w-full"
+    >
+      <CarouselContent className="-ml-4">
+        {carouselItems.map((item, index) => (
+          <CarouselItem key={index} className="pl-4 basis-full md:basis-1/2 lg:basis-1/3">
+            <article className="overflow-hidden rounded-lg border border-border bg-card">
+              <div className="relative aspect-[3/4] overflow-hidden bg-soft">
+                {item.type === "image" ? (
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    className="h-full w-full object-contain"
+                    loading="lazy"
+                  />
+                ) : (
+                  <video
+                    ref={index === 4 ? videoRef : undefined}
+                    src={item.src}
+                    controls
+                    className="h-full w-full object-contain"
+                    preload="metadata"
+                  />
+                )}
+              </div>
+            </article>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <button
+        onClick={() => api?.scrollPrev()}
+        disabled={!api?.canScrollPrev()}
+        className="absolute left-2 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full border border-border bg-ink/80 text-ink-foreground transition-colors hover:bg-ink disabled:opacity-50 disabled:cursor-not-allowed z-10"
+        aria-label="Anterior"
+      >
+        <ArrowLeft className="h-5 w-5" />
+      </button>
+      <button
+        onClick={() => api?.scrollNext()}
+        disabled={!api?.canScrollNext()}
+        className="absolute right-2 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full border border-border bg-ink/80 text-ink-foreground transition-colors hover:bg-ink disabled:opacity-50 disabled:cursor-not-allowed z-10"
+        aria-label="Siguiente"
+      >
+        <ArrowRight className="h-5 w-5" />
+      </button>
+      <div className="mt-6 flex justify-center gap-2">
+        {carouselItems.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => api?.scrollTo(index)}
+            className={`h-2 w-2 rounded-full transition-colors ${
+              index === current ? "bg-gold-dark" : "bg-ink-border"
+            }`}
+            aria-label={`Ir a diapositiva ${index + 1}`}
+          />
+        ))}
+      </div>
+    </Carousel>
+  );
+}
+
 function Home() {
   return (
     <>
@@ -124,7 +240,7 @@ function Home() {
           </div>
           <div className="grid gap-6 sm:grid-cols-2">
             <Reveal className="sm:col-span-2">
-              <img src={hero} alt="Elementos de higiene oral sobre lino (imagen ilustrativa)" width={1200} height={900} loading="lazy" className="aspect-[16/9] w-full rounded-lg object-cover" />
+              <img src={nosotros} alt="Elementos de higiene oral sobre lino (imagen ilustrativa)" width={1200} height={900} loading="lazy" className="aspect-[16/9] w-full rounded-lg object-cover" />
             </Reveal>
             {reasons.map((r, i) => (
               <Reveal key={r.t} delay={i * 0.07} className="border-t border-gold/50 pt-5">
@@ -134,6 +250,19 @@ function Home() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="py-24 md:py-32">
+        <div className="container-site">
+          <Reveal>
+            <div className="mb-12">
+              <SectionHeading eyebrow="Nuestro espacio" title="Conoce nuestro consultorio" />
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <VerticalCarousel />
+          </Reveal>
         </div>
       </section>
 

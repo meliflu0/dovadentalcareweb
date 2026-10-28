@@ -1,5 +1,5 @@
 import { r as __toESM } from "../_runtime.mjs";
-import { c as require_react } from "./@radix-ui/react-accordion+[...].mjs";
+import { l as require_react } from "./@radix-ui/react-accordion+[...].mjs";
 //#region node_modules/lucide-react/dist/esm/shared/src/utils/mergeClasses.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 /**
@@ -109,6 +109,19 @@ var createLucideIcon = (iconName, iconNode) => {
 	Component.displayName = toPascalCase(iconName);
 	return Component;
 };
+/**
+* @license lucide-react v0.575.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var ArrowLeft = createLucideIcon("arrow-left", [["path", {
+	d: "m12 19-7-7 7-7",
+	key: "1l729n"
+}], ["path", {
+	d: "M19 12H5",
+	key: "x3x0zl"
+}]]);
 /**
 * @license lucide-react v0.575.0 - ISC
 *
@@ -476,4 +489,4 @@ var X = createLucideIcon("x", [["path", {
 	key: "d8bk6v"
 }]]);
 //#endregion
-export { ChevronDown as _, Sparkles as a, ArrowUpRight as b, Menu as c, Instagram as d, HeartHandshake as f, Clock as g, CreditCard as h, Star as i, MapPin as l, Facebook as m, Users as n, Smile as o, GraduationCap as p, Stethoscope as r, ShieldCheck as s, X as t, Mail as u, Check as v, ArrowRight as x, Award as y };
+export { ArrowLeft as S, ChevronDown as _, Sparkles as a, ArrowUpRight as b, Menu as c, Instagram as d, HeartHandshake as f, Clock as g, CreditCard as h, Star as i, MapPin as l, Facebook as m, Users as n, Smile as o, GraduationCap as p, Stethoscope as r, ShieldCheck as s, X as t, Mail as u, Check as v, ArrowRight as x, Award as y };

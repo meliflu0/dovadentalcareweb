@@ -1,0 +1,1 @@
+import{T as e,t}from"./index-D_3dMMbX.js";var n=e(),r=()=>(0,n.jsx)(t,{slug:`implantes-dentales-villavicencio`});export{r as component};

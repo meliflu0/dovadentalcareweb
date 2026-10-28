@@ -8,7 +8,7 @@ import { buildAppointmentMessage, isValidPhone, waLink } from "@/lib/whatsapp";
 import { PageHero, WaButton, WhatsAppIcon } from "@/components/site/primitives";
 
 export const Route = createFileRoute("/contacto")({
-  head: () => seo("Contacto y citas | DOVA Dental Care Villavicencio", "Agenda tu cita en DOVA Dental Care: Cl. 4 #16-47, barrio Hacarítama, Villavicencio. WhatsApp +57 320 253 3409. Lunes a sábado de 9 a. m. a 8 p. m.", "/contacto"),
+  head: () => seo("Contacto y citas | DOVA Dental Care Villavicencio", "Agenda tu cita en DOVA Dental Care: Cl. 4 #16-57, barrio Hacarítama, Villavicencio. WhatsApp +57 320 253 3409. Lunes a sábado de 9 a. m. a 8 p. m.", "/contacto"),
   component: Contact,
 });
 
@@ -61,7 +61,7 @@ function Contact() {
               <li className="flex gap-4"><WhatsAppIcon className="mt-1 h-5 w-5 text-gold-dark" /><div><p className="eyebrow mb-1">WhatsApp</p><a href={waLink()} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-gold-dark">{site.phoneDisplay}</a></div></li>
             </ul>
             <div className="mt-10 overflow-hidden rounded-lg border border-border">
-              <iframe title="Ubicación de DOVA Dental Care en Google Maps" src={site.mapsEmbed} width="600" height="320" loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="block h-80 w-full" />
+              <iframe title="Ubicación de DOVA Dental Care en Google Maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d994.8681054198306!2d-73.61637383046813!3d4.1270437373679885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3e2e65c9623a4f%3A0x55da6cce854d538d!2sCl.%204%20%2316-57%2C%20Villavicencio%2C%20Meta!5e0!3m2!1sen!2sco!4v1793204633656!5m2!1sen!2sco" width="600" height="450" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="strict-origin-when-cross-origin" className="block h-80 w-full" />
             </div>
             <a href={site.mapsUrl} target="_blank" rel="noopener noreferrer" className="mt-3 inline-block text-sm text-gold-dark underline">Abrir ubicación en Google Maps</a>
           </div>

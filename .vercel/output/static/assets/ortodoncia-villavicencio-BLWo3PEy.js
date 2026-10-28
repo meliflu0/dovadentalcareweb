@@ -1,0 +1,1 @@
+import{T as e,t}from"./index-BBqQgdHv.js";var n=e(),r=()=>(0,n.jsx)(t,{slug:`ortodoncia-villavicencio`});export{r as component};

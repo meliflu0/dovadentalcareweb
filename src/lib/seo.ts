@@ -1,4 +1,4 @@
-export const SITE_URL = "https://dovadentalcare.lovable.app";
+export const SITE_URL = "https://odontologiadovadentalcare.com";
 
 export function seo(title: string, description: string, path: string) {
   return {

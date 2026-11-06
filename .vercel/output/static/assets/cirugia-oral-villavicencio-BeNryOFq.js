@@ -1,0 +1,1 @@
+import{k as e,t}from"./index-B07NkYzo.js";var n=e(),r=()=>(0,n.jsx)(t,{slug:`cirugia-oral-villavicencio`});export{r as component};

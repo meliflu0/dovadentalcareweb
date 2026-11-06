@@ -1,1 +1,0 @@
-import{k as e,t}from"./index-BHdIT351.js";var n=e(),r=()=>(0,n.jsx)(t,{slug:`blanqueamiento-dental-villavicencio`});export{r as component};
